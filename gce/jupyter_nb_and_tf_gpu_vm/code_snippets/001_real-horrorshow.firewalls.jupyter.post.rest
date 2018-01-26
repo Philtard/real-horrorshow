@@ -1,0 +1,26 @@
+POST https://www.googleapis.com/compute/v1/projects/real-horrorshow/global/firewalls
+{
+  "name": "jupyter",
+  "selfLink": "projects/real-horrorshow/global/firewalls/jupyter",
+  "network": "projects/real-horrorshow/global/networks/default",
+  "direction": "INGRESS",
+  "priority": 1000,
+  "description": "jupyter notebook firewall rule allows tcp 8888 connections",
+  "targetTags": [
+    "jupyter"
+  ],
+  "allowed": [
+    {
+      "IPProtocol": "tcp",
+      "ports": [
+        "8888"
+      ]
+    }
+  ],
+  "sourceRanges": [
+    "0.0.0.0/0"
+  ],
+  "sourceTags": [
+    "jupyter"
+  ]
+}
