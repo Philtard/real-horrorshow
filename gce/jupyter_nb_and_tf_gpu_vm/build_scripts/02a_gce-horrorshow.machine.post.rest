@@ -1,0 +1,70 @@
+POST https://www.googleapis.com/compute/v1/projects/real-horrorshow/zones/europe-west1-b/instances
+{
+  "name": "gce-horrorshow",
+  "zone": "projects/real-horrorshow/zones/europe-west1-b",
+  "minCpuPlatform": "Automatic",
+  "machineType": "projects/real-horrorshow/zones/europe-west1-b/machineTypes/n1-standard-1",
+  "metadata": {
+    "items": []
+  },
+  "tags": {
+    "items": [
+      "jupyter",
+      "tensorboard"
+    ]
+  },
+  "guestAccelerators": [
+    {
+      "acceleratorType": "projects/real-horrorshow/zones/europe-west1-b/acceleratorTypes/nvidia-tesla-k80",
+      "acceleratorCount": 1
+    }
+  ],
+  "disks": [
+    {
+      "type": "PERSISTENT",
+      "boot": true,
+      "mode": "READ_WRITE",
+      "autoDelete": true,
+      "deviceName": "gce-horrorshow",
+      "initializeParams": {
+        "sourceImage": "projects/ubuntu-os-cloud/global/images/ubuntu-1604-xenial-v20180122",
+        "diskType": "projects/real-horrorshow/zones/europe-west1-b/diskTypes/pd-standard",
+        "diskSizeGb": "50"
+      }
+    }
+  ],
+  "canIpForward": false,
+  "networkInterfaces": [
+    {
+      "subnetwork": "projects/real-horrorshow/regions/europe-west1/subnetworks/default",
+      "accessConfigs": [
+        {
+          "name": "External NAT",
+          "type": "ONE_TO_ONE_NAT"
+        }
+      ],
+      "aliasIpRanges": []
+    }
+  ],
+  "description": "",
+  "labels": {},
+  "scheduling": {
+    "preemptible": false,
+    "onHostMaintenance": "TERMINATE",
+    "automaticRestart": true
+  },
+  "deletionProtection": false,
+  "serviceAccounts": [
+    {
+      "email": "111942792219-compute@developer.gserviceaccount.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/devstorage.read_only",
+        "https://www.googleapis.com/auth/logging.write",
+        "https://www.googleapis.com/auth/monitoring.write",
+        "https://www.googleapis.com/auth/servicecontrol",
+        "https://www.googleapis.com/auth/service.management.readonly",
+        "https://www.googleapis.com/auth/trace.append"
+      ]
+    }
+  ]
+}

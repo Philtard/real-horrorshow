@@ -1,0 +1,1 @@
+gcloud compute --project=real-horrorshow firewall-rules create tensorboard --description=tensorboard\ firewall\ rule\ allows\ tcp\ on\ port\ 6006 --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:6006 --source-ranges=0.0.0.0/0 --target-tags=tensorboard

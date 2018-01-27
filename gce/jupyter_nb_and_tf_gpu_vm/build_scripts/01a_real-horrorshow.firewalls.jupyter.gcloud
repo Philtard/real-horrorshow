@@ -1,2 +1,1 @@
-#!/usr/bin/env bash
 gcloud compute --project=real-horrorshow firewall-rules create jupyter --description=jupyter\ notebook\ firewall\ rule\ allows\ tcp\ 8888\ connections --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:8888 --source-ranges=0.0.0.0/0 --source-tags=jupyter --target-tags=jupyter
